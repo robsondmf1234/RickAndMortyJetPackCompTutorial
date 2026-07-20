@@ -26,13 +26,16 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.example.rickandmortyjetpackcompose.domain.model.Character
+import com.example.rickandmortyjetpackcompose.domain.model.CharacterMock
 import com.example.rickandmortyjetpackcompose.presentation.state.MainUiState
 import com.example.rickandmortyjetpackcompose.presentation.ui.theme.RickAndMortyJetPackComposeTheme
 import com.example.rickandmortyjetpackcompose.presentation.viewmodel.MainViewModel
@@ -61,10 +64,10 @@ class MainActivity : ComponentActivity() {
         setContent {
             // Aplica o tema base da aplicação definido no Material Design 3.
             RickAndMortyJetPackComposeTheme {
-                
+
                 // Observa o estado da UI vindo do ViewModel através de LiveData. 
                 // O estado inicial é 'Loading'. O Compose recompõe a tela sempre que uiState muda.
-                val uiState by viewModel.myResponse.observeAsState(MainUiState.Loading)
+                val uiState by viewModel.myResponse.collectAsState()
 
                 // Scaffold fornece a estrutura básica do layout (TopBar, BottomBar, etc).
                 Scaffold(
@@ -175,5 +178,25 @@ fun CharacterItem(character: Character) {
                 )
             }
         }
+    }
+}
+
+@Preview(showSystemUi = true)
+@Composable
+private fun LoadingScreenPreview() {
+    LoadingScreen()
+}
+
+@Preview(showSystemUi = true)
+@Composable
+private fun ErrorScreenPreview() {
+    ErrorScreen(message = "Ocorreu um erro ao carregar os dados.")
+}
+
+@Preview(showSystemUi = true)
+@Composable
+private fun CharacterListPreview() {
+    RickAndMortyJetPackComposeTheme {
+        CharacterList(characters = CharacterMock.mockCharacterList)
     }
 }

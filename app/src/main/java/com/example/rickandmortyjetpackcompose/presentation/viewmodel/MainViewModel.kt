@@ -1,12 +1,12 @@
 package com.example.rickandmortyjetpackcompose.presentation.viewmodel
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.rickandmortyjetpackcompose.domain.repository.CharacterRepository
 import com.example.rickandmortyjetpackcompose.presentation.state.MainUiState
 import com.google.gson.JsonSyntaxException
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import java.io.IOException
 import java.net.SocketTimeoutException
@@ -18,10 +18,10 @@ import java.net.SocketTimeoutException
 class MainViewModel(private val repository: CharacterRepository) : ViewModel() {
 
     // LiveData interno (mutável) para controlar o estado da UI.
-    private var _myResponse: MutableLiveData<MainUiState> = MutableLiveData()
-    
+    private var _myResponse: MutableStateFlow<MainUiState> = MutableStateFlow(MainUiState.Loading)
+
     // LiveData externo (imutável) observado pela MainActivity.
-    val myResponse: LiveData<MainUiState> = _myResponse
+    val myResponse: StateFlow<MainUiState> = _myResponse
 
     /**
      * Inicia o processo de busca de personagens.
@@ -35,7 +35,7 @@ class MainViewModel(private val repository: CharacterRepository) : ViewModel() {
             try {
                 // Chama o repositório para obter os dados.
                 val response = repository.getCharacter()
-                
+
                 if (response.isSuccessful) {
                     val characters = response.body()?.charactersInfo
                     if (characters != null) {
