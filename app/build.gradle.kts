@@ -67,4 +67,8 @@ dependencies {
     implementation(libs.coroutinesAndroid)
     implementation(libs.lifecycleViewModel)
 
+    // Coil and Compose LiveData
+    implementation(libs.coil.compose)
+    implementation(libs.androidx.runtime.livedata)
+
 }
