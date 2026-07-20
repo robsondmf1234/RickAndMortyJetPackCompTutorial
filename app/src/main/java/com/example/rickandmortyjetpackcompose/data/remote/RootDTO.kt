@@ -8,7 +8,7 @@ import com.google.gson.annotations.SerializedName
  * Objeto de resposta raiz da API de Rick and Morty.
  * Contém informações de paginação e a lista de resultados.
  */
-data class Root(
+data class RootDTO(
     val info: Info,
     
     /**

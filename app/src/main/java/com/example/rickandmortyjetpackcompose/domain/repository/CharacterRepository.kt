@@ -1,6 +1,7 @@
 package com.example.rickandmortyjetpackcompose.domain.repository
 
-import com.example.rickandmortyjetpackcompose.data.remote.Root
+import com.example.rickandmortyjetpackcompose.data.remote.RootDTO
+import com.example.rickandmortyjetpackcompose.domain.model.Character
 import retrofit2.Response
 
 /**
@@ -11,5 +12,5 @@ interface CharacterRepository {
     /**
      * Define o método para buscar personagens.
      */
-    suspend fun getCharacter(): Response<Root>
+    suspend fun getCharacter(): Response<RootDTO>
 }

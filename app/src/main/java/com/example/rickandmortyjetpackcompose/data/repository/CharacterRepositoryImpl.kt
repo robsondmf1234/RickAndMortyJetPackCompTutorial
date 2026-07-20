@@ -1,7 +1,7 @@
 package com.example.rickandmortyjetpackcompose.data.repository
 
 import com.example.rickandmortyjetpackcompose.data.api.SimpleApi
-import com.example.rickandmortyjetpackcompose.data.remote.Root
+import com.example.rickandmortyjetpackcompose.data.remote.RootDTO
 import com.example.rickandmortyjetpackcompose.domain.repository.CharacterRepository
 import retrofit2.Response
 
@@ -14,7 +14,7 @@ class CharacterRepositoryImpl(private val api: SimpleApi) : CharacterRepository 
     /**
      * Realiza a chamada para a API [SimpleApi] para buscar os personagens.
      */
-    override suspend fun getCharacter(): Response<Root> {
+    override suspend fun getCharacter(): Response<RootDTO> {
         return api.getCharacters()
     }
 }
