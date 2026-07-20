@@ -6,7 +6,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitInstance {
     private const val BASE_URL = BuildConfig.BASE_URL
-//    "https://rickandmortyapi.com/api/"
 
     val api: SimpleApi by lazy {
         Retrofit.Builder()
