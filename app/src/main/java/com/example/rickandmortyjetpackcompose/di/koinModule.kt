@@ -12,30 +12,33 @@ import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-
+/**
+ * Módulo de Dependências do Koin.
+ * Aqui definimos como cada classe do sistema deve ser instanciada e como
+ * elas se relacionam (quem depende de quem).
+ */
 val appModule = module {
-    // Repository como singleton
-    single<CharacterRepository> { CharacterRepositoryImpl(get()) }
 
-    // ViewModel com injeção de Repository
-    viewModel { MainViewModel(get()) }
+    // --- Camada de Dados (Data) ---
 
-
-    //Logger interceptor
+    // Define o interceptor de logs para o OkHttp. 
+    // O nível BODY permite ver no Logcat todo o conteúdo das requisições e respostas JSON.
     single {
         HttpLoggingInterceptor().apply {
             level = HttpLoggingInterceptor.Level.BODY
         }
     }
 
-    //OkHttp como singleton
+    // Define o OkHttpClient como Singleton.
+    // O 'get()' aqui busca automaticamente o HttpLoggingInterceptor definido acima.
     single {
         OkHttpClient.Builder()
             .addInterceptor(get<HttpLoggingInterceptor>())
             .build()
     }
 
-    //Retrofit como singleton
+    // Configuração do Retrofit como Singleton.
+    // Utiliza a BASE_URL vinda do BuildConfig e o OkHttpClient injetado via 'get()'.
     single {
         Retrofit.Builder()
             .baseUrl(BuildConfig.BASE_URL)
@@ -44,6 +47,21 @@ val appModule = module {
             .build()
     }
 
-    //SimpleApi como singleton(depende do retrofit)
+    // Provê a interface SimpleApi criada pelo Retrofit.
+    // Essencial para que o Repositório consiga realizar as chamadas de rede.
     single { get<Retrofit>().create(SimpleApi::class.java) }
+
+    // --- Camada de Domínio / Repositório ---
+
+    // Provê a implementação do Repositório.
+    // Declaramos como 'CharacterRepository' (interface) para manter o desacoplamento.
+    // Injeta a 'SimpleApi' necessária para o funcionamento do repositório.
+    single<CharacterRepository> { CharacterRepositoryImpl(get()) }
+
+    // --- Camada de Apresentação (Presentation) ---
+
+    // Define o ViewModel.
+    // Usamos 'viewModel' em vez de 'single' para que o Koin respeite o ciclo de vida do Android.
+    // Injeta automaticamente o 'CharacterRepository' no construtor do ViewModel.
+    viewModel { MainViewModel(get()) }
 }

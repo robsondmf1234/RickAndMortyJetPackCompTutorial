@@ -1,4 +1,4 @@
-package com.example.rickandmortyjetpackcompose.presentation.ui
+package com.example.rickandmortyjetpackcompose.presentation.state
 
 import com.example.rickandmortyjetpackcompose.domain.model.Character
 
