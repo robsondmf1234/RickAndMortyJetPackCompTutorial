@@ -1,10 +1,12 @@
 package com.example.rickandmortyjetpackcompose.data.api
 
+import com.example.rickandmortyjetpackcompose.BuildConfig
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitInstance {
-    private const val BASE_URL = "https://rickandmortyapi.com/api/"
+    private const val BASE_URL = BuildConfig.BASE_URL
+//    "https://rickandmortyapi.com/api/"
 
     val api: SimpleApi by lazy {
         Retrofit.Builder()
