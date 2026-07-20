@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.rickandmortyjetpackcompose.domain.repository.CharacterRepository
-import com.example.rickandmortyjetpackcompose.presentation.ui.MainUiState
+import com.example.rickandmortyjetpackcompose.presentation.state.MainUiState
 import com.google.gson.JsonSyntaxException
 import kotlinx.coroutines.launch
 import java.io.IOException
