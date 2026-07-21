@@ -58,7 +58,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
 
         // Dispara a busca de personagens no ViewModel assim que a Activity é criada.
-        viewModel.getCharacter()
+        viewModel.getCharacters()
 
         setContent {
             // Aplica o tema base da aplicação definido no Material Design 3.
@@ -66,7 +66,7 @@ class MainActivity : ComponentActivity() {
 
                 // Observa o estado da UI vindo do ViewModel através de LiveData. 
                 // O estado inicial é 'Loading'. O Compose recompõe a tela sempre que uiState muda.
-                val uiState by viewModel.myResponse.collectAsState()
+                val uiState by viewModel.uiState.collectAsState()
 
                 // Scaffold fornece a estrutura básica do layout (TopBar, BottomBar, etc).
                 Scaffold(

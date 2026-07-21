@@ -4,6 +4,7 @@ import com.example.rickandmortyjetpackcompose.BuildConfig
 import com.example.rickandmortyjetpackcompose.data.api.CharacterApi
 import com.example.rickandmortyjetpackcompose.data.repository.CharacterRepositoryImpl
 import com.example.rickandmortyjetpackcompose.domain.repository.CharacterRepository
+import com.example.rickandmortyjetpackcompose.domain.usecase.GetCharactersUseCase
 import com.example.rickandmortyjetpackcompose.presentation.viewmodel.MainViewModel
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -55,13 +56,17 @@ val appModule = module {
 
     // Provê a implementação do Repositório.
     // Declaramos como 'CharacterRepository' (interface) para manter o desacoplamento.
-    // Injeta a 'SimpleApi' necessária para o funcionamento do repositório.
+    // Injeta a 'CharacterApi' necessária para o funcionamento do repositório.
     single<CharacterRepository> { CharacterRepositoryImpl(get()) }
+
+    // Provê o caso de uso que busca personagens.
+    // Recebe a interface CharacterRepository injetada automaticamente.
+    single { GetCharactersUseCase(get()) }
 
     // --- Camada de Apresentação (Presentation) ---
 
     // Define o ViewModel.
     // Usamos 'viewModel' em vez de 'single' para que o Koin respeite o ciclo de vida do Android.
-    // Injeta automaticamente o 'CharacterRepository' no construtor do ViewModel.
+    // Injeta automaticamente o 'GetCharactersUseCase' no construtor do ViewModel.
     viewModel { MainViewModel(get()) }
 }

@@ -2,7 +2,7 @@ package com.example.rickandmortyjetpackcompose.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.rickandmortyjetpackcompose.domain.repository.CharacterRepository
+import com.example.rickandmortyjetpackcompose.domain.usecase.GetCharactersUseCase
 import com.example.rickandmortyjetpackcompose.presentation.state.MainUiState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -12,37 +12,37 @@ import java.net.SocketTimeoutException
 
 /**
  * ViewModel responsável por gerenciar os dados da tela principal.
- * Ele atua como uma ponte entre o repositório (Domain) e a UI (Presentation).
- * Não conhece detalhes de Retrofit, DTOs ou serialização.
+ * Delega a busca de personagens ao [GetCharactersUseCase] e converte
+ * o resultado em estados de UI para a [presentation].
  */
-class MainViewModel(private val repository: CharacterRepository) : ViewModel() {
+class MainViewModel(private val getCharactersUseCase: GetCharactersUseCase) : ViewModel() {
 
-    private var _myResponse: MutableStateFlow<MainUiState> = MutableStateFlow(MainUiState.Loading)
-    val myResponse: StateFlow<MainUiState> = _myResponse
+    private var _uiState: MutableStateFlow<MainUiState> = MutableStateFlow(MainUiState.Loading)
+    val uiState: StateFlow<MainUiState> = _uiState
 
     /**
-     * Inicia o processo de busca de personagens.
-     * Altera o estado para Loading, realiza a chamada assíncrona e trata os resultados/erros.
+     * Inicia a busca de personagens via UseCase.
+     * Transforma o resultado em estado de UI (Loading, Success ou Error).
      */
-    fun getCharacter() {
+    fun getCharacters() {
         viewModelScope.launch {
-            _myResponse.value = MainUiState.Loading
+            _uiState.value = MainUiState.Loading
 
             try {
-                val characters = repository.getCharacter()
+                val characters = getCharactersUseCase()
 
                 if (characters.isNotEmpty()) {
-                    _myResponse.value = MainUiState.Success(characters)
+                    _uiState.value = MainUiState.Success(characters)
                 } else {
-                    _myResponse.value = MainUiState.Error("Nenhum personagem encontrado")
+                    _uiState.value = MainUiState.Error("Nenhum personagem encontrado")
                 }
 
             } catch (e: SocketTimeoutException) {
-                _myResponse.value = MainUiState.Error("Tempo de conexão esgotado: ${e.message}")
+                _uiState.value = MainUiState.Error("Tempo de conexão esgotado: ${e.message}")
             } catch (e: IOException) {
-                _myResponse.value = MainUiState.Error("Falha de rede: Verifique sua conexão")
+                _uiState.value = MainUiState.Error("Falha de rede: Verifique sua conexão")
             } catch (e: Exception) {
-                _myResponse.value = MainUiState.Error("Erro inesperado: ${e.message}")
+                _uiState.value = MainUiState.Error("Erro inesperado: ${e.message}")
             }
         }
     }
