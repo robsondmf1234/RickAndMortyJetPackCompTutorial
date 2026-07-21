@@ -1,5 +1,7 @@
 package com.example.rickandmortyjetpackcompose.data.model
 
+import com.google.gson.annotations.SerializedName
+
 /**
  * Modelo de domínio que representa um personagem de Rick and Morty.
  */
@@ -10,8 +12,8 @@ data class CharacterDTO(
     val species: String,
     val type: String,
     val gender: String,
-    val originDTO: OriginDTO,
-    val locationDTO: LocationDTO,
+    val origin: OriginDTO,
+    val location: LocationDTO,
     val image: String,
     val episode: List<String>,
     val url: String,

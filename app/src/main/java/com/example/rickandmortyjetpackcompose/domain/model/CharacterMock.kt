@@ -1,9 +1,5 @@
 package com.example.rickandmortyjetpackcompose.domain.model
 
-import com.example.rickandmortyjetpackcompose.data.model.CharacterDTO
-import com.example.rickandmortyjetpackcompose.data.model.LocationDTO
-import com.example.rickandmortyjetpackcompose.data.model.OriginDTO
-
 /**
  * Objeto utilitário contendo dados de exemplo (mocks) para a classe Character.
  * Útil para Previews de Compose e Testes Unitários.
@@ -13,18 +9,18 @@ object CharacterMock {
     /**
      * Retorna um único personagem mockado (Rick Sanchez).
      */
-    val mockCharacter = CharacterDTO(
+    val mockCharacter = Character(
         id = 1,
         name = "Rick Sanchez",
         status = "Alive",
         species = "Human",
         type = "",
         gender = "Male",
-        originDTO = OriginDTO(
+        origin = Origin(
             name = "Earth (C-137)",
             url = "https://rickandmortyapi.com/api/location/1"
         ),
-        locationDTO = LocationDTO(
+        location = Location(
             name = "Citadel of Ricks",
             url = "https://rickandmortyapi.com/api/location/3"
         ),
@@ -42,15 +38,15 @@ object CharacterMock {
      */
     val mockCharacterList = listOf(
         mockCharacter,
-        CharacterDTO(
+        Character(
             id = 2,
             name = "Morty Smith",
             status = "Alive",
             species = "Human",
             type = "",
             gender = "Male",
-            originDTO = OriginDTO(name = "unknown", url = ""),
-            locationDTO = LocationDTO(
+            origin = Origin(name = "unknown", url = ""),
+            location = Location(
                 name = "Citadel of Ricks",
                 url = "https://rickandmortyapi.com/api/location/3"
             ),
@@ -59,18 +55,18 @@ object CharacterMock {
             url = "https://rickandmortyapi.com/api/character/2",
             created = "2017-11-04T18:50:21.651Z"
         ),
-        CharacterDTO(
+        Character(
             id = 3,
             name = "Summer Smith",
             status = "Alive",
             species = "Human",
             type = "",
             gender = "Female",
-            originDTO = OriginDTO(
+            origin = Origin(
                 name = "Earth (Replacement Dimension)",
                 url = "https://rickandmortyapi.com/api/location/20"
             ),
-            locationDTO = LocationDTO(
+            location = Location(
                 name = "Earth (Replacement Dimension)",
                 url = "https://rickandmortyapi.com/api/location/20"
             ),

@@ -33,7 +33,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
-import com.example.rickandmortyjetpackcompose.data.model.CharacterDTO
+import com.example.rickandmortyjetpackcompose.domain.model.Character
 import com.example.rickandmortyjetpackcompose.domain.model.CharacterMock
 import com.example.rickandmortyjetpackcompose.presentation.state.MainUiState
 import com.example.rickandmortyjetpackcompose.presentation.ui.theme.RickAndMortyJetPackComposeTheme
@@ -126,7 +126,7 @@ fun ErrorScreen(message: String) {
  * que carrega apenas os itens visíveis na tela (semelhante ao RecyclerView).
  */
 @Composable
-fun CharacterList(characters: List<CharacterDTO>) {
+fun CharacterList(characters: List<Character>) {
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
         contentPadding = PaddingValues(bottom = 16.dp) // Espaçamento extra no final da lista para melhor visualização.
@@ -142,7 +142,7 @@ fun CharacterList(characters: List<CharacterDTO>) {
  * Item Individual da Lista: Representa um Card com a foto e informações básicas do personagem.
  */
 @Composable
-fun CharacterItem(character: CharacterDTO) {
+fun CharacterItem(character: Character) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
