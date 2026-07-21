@@ -1,7 +1,5 @@
-package com.example.rickandmortyjetpackcompose.data.remote
+package com.example.rickandmortyjetpackcompose.data.model
 
-import com.example.rickandmortyjetpackcompose.data.model.CharacterDTO
-import com.example.rickandmortyjetpackcompose.data.model.InfoDTO
 import com.google.gson.annotations.SerializedName
 
 /**
@@ -12,7 +10,7 @@ data class RootDTO(
     val info: InfoDTO,
 
     /**
-     * Lista de personagens retornada pela API. 
+     * Lista de personagens retornada pela API.
      * Mapeada do campo "results" no JSON.
      */
     @SerializedName("results")

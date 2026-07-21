@@ -1,6 +1,6 @@
 package com.example.rickandmortyjetpackcompose.data.api
 
-import com.example.rickandmortyjetpackcompose.data.remote.RootDTO
+import com.example.rickandmortyjetpackcompose.data.model.RootDTO
 import retrofit2.Response
 import retrofit2.http.GET
 

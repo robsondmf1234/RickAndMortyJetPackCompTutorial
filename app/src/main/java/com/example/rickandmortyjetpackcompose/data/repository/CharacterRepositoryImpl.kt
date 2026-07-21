@@ -1,7 +1,7 @@
 package com.example.rickandmortyjetpackcompose.data.repository
 
 import com.example.rickandmortyjetpackcompose.data.api.SimpleApi
-import com.example.rickandmortyjetpackcompose.data.remote.RootDTO
+import com.example.rickandmortyjetpackcompose.data.model.RootDTO
 import com.example.rickandmortyjetpackcompose.domain.repository.CharacterRepository
 import retrofit2.Response
 
