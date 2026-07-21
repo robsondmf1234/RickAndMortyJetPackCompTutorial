@@ -3,8 +3,7 @@ package com.example.rickandmortyjetpackcompose.data.model
 import com.google.gson.annotations.SerializedName
 
 /**
- * Objeto de resposta raiz da API de Rick and Morty.
- * Contém informações de paginação e a lista de resultados.
+ * DTO raiz da resposta da API, contendo paginação e lista de personagens.
  */
 data class RootDTO(
     val info: InfoDTO,

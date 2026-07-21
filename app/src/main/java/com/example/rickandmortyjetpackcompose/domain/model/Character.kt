@@ -1,5 +1,9 @@
 package com.example.rickandmortyjetpackcompose.domain.model
 
+/**
+ * Entidade de domínio que representa um personagem.
+ * Não contém detalhes de rede, serialização ou framework.
+ */
 data class Character(
     val id: Int,
     val name: String,
