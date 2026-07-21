@@ -1,8 +1,5 @@
 package com.example.rickandmortyjetpackcompose.domain.model
 
-/**
- * Modelo de domínio que representa um personagem de Rick and Morty.
- */
 data class Character(
     val id: Int,
     val name: String,

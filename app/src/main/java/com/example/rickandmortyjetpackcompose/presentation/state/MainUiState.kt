@@ -11,7 +11,7 @@ sealed class MainUiState {
     
     /** Estado de sucesso, contendo a lista de personagens carregada. */
     data class Success(val characters: List<Character>) : MainUiState()
-    
+
     /** Estado de erro, contendo uma mensagem descritiva. */
     data class Error(val message: String) : MainUiState()
 }

@@ -1,9 +1,9 @@
-package com.example.rickandmortyjetpackcompose.domain.model
+package com.example.rickandmortyjetpackcompose.data.model
 
 /**
  * Modelo de domínio que representa a localização atual de um personagem.
  */
-data class Location(
+data class LocationDTO(
     val name: String,
     val url: String
 )
