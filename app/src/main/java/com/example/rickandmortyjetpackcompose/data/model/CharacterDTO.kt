@@ -1,9 +1,7 @@
 package com.example.rickandmortyjetpackcompose.data.model
 
-import com.google.gson.annotations.SerializedName
-
 /**
- * Modelo de domínio que representa um personagem de Rick and Morty.
+ * DTO da camada data que representa um personagem retornado pela API.
  */
 data class CharacterDTO(
     val id: Int,

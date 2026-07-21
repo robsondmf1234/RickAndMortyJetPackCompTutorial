@@ -1,7 +1,7 @@
 package com.example.rickandmortyjetpackcompose.di
 
 import com.example.rickandmortyjetpackcompose.BuildConfig
-import com.example.rickandmortyjetpackcompose.data.api.SimpleApi
+import com.example.rickandmortyjetpackcompose.data.api.CharacterApi
 import com.example.rickandmortyjetpackcompose.data.repository.CharacterRepositoryImpl
 import com.example.rickandmortyjetpackcompose.domain.repository.CharacterRepository
 import com.example.rickandmortyjetpackcompose.presentation.viewmodel.MainViewModel
@@ -49,7 +49,7 @@ val appModule = module {
 
     // Provê a interface SimpleApi criada pelo Retrofit.
     // Essencial para que o Repositório consiga realizar as chamadas de rede.
-    single { get<Retrofit>().create(SimpleApi::class.java) }
+    single { get<Retrofit>().create(CharacterApi::class.java) }
 
     // --- Camada de Domínio / Repositório ---
 

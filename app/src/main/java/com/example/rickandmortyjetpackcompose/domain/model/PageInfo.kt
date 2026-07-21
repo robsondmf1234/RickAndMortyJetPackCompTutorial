@@ -1,9 +1,9 @@
 package com.example.rickandmortyjetpackcompose.domain.model
 
 /**
- * Modelo de domínio que contém informações de paginação da API.
+ * Entidade de domínio com metadados de paginação da listagem de personagens.
  */
-data class Info(
+data class PageInfo(
     val count: Int,
     val pages: Int,
     val next: String?,

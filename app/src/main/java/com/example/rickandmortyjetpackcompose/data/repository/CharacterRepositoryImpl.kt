@@ -1,6 +1,6 @@
 package com.example.rickandmortyjetpackcompose.data.repository
 
-import com.example.rickandmortyjetpackcompose.data.api.SimpleApi
+import com.example.rickandmortyjetpackcompose.data.api.CharacterApi
 import com.example.rickandmortyjetpackcompose.data.mapper.toDomain
 import com.example.rickandmortyjetpackcompose.domain.model.Character
 import com.example.rickandmortyjetpackcompose.domain.repository.CharacterRepository
@@ -10,10 +10,10 @@ import com.example.rickandmortyjetpackcompose.domain.repository.CharacterReposit
  * Responsável por decidir a fonte dos dados (neste caso, a API remota).
  * Toda interação com Retrofit e DTOs fica encapsulada aqui.
  */
-class CharacterRepositoryImpl(private val api: SimpleApi) : CharacterRepository {
+class CharacterRepositoryImpl(private val api: CharacterApi) : CharacterRepository {
 
     /**
-     * Realiza a chamada para a API [SimpleApi], aplica o mapper e retorna
+     * Realiza a chamada para a API [CharacterApi], aplica o mapper e retorna
      * a lista de personagens como modelos de domínio.
      * Lança exceção em caso de resposta mal-sucedida ou body nulo.
      */

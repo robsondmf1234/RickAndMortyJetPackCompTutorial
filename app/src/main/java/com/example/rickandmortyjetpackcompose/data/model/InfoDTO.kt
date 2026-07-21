@@ -1,7 +1,7 @@
 package com.example.rickandmortyjetpackcompose.data.model
 
 /**
- * Modelo de domínio que contém informações de paginação da API.
+ * DTO da camada data com metadados de paginação da API.
  */
 data class InfoDTO(
     val count: Int,
