@@ -9,7 +9,7 @@ object CharacterMock {
     /**
      * Retorna um único personagem mockado (Rick Sanchez).
      */
-    val mockCharacter = Character(
+    val mockCharacter = CharacterDTO(
         id = 1,
         name = "Rick Sanchez",
         status = "Alive",
@@ -38,7 +38,7 @@ object CharacterMock {
      */
     val mockCharacterList = listOf(
         mockCharacter,
-        Character(
+        CharacterDTO(
             id = 2,
             name = "Morty Smith",
             status = "Alive",
@@ -55,7 +55,7 @@ object CharacterMock {
             url = "https://rickandmortyapi.com/api/character/2",
             created = "2017-11-04T18:50:21.651Z"
         ),
-        Character(
+        CharacterDTO(
             id = 3,
             name = "Summer Smith",
             status = "Alive",

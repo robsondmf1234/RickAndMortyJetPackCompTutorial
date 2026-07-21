@@ -1,7 +1,7 @@
 package com.example.rickandmortyjetpackcompose.data.remote
 
-import com.example.rickandmortyjetpackcompose.domain.model.Character
-import com.example.rickandmortyjetpackcompose.domain.model.Info
+import com.example.rickandmortyjetpackcompose.domain.model.CharacterDTO
+import com.example.rickandmortyjetpackcompose.domain.model.InfoDTO
 import com.google.gson.annotations.SerializedName
 
 /**
@@ -9,12 +9,12 @@ import com.google.gson.annotations.SerializedName
  * Contém informações de paginação e a lista de resultados.
  */
 data class RootDTO(
-    val info: Info,
-    
+    val info: InfoDTO,
+
     /**
      * Lista de personagens retornada pela API. 
      * Mapeada do campo "results" no JSON.
      */
     @SerializedName("results")
-    val charactersInfo: List<Character>
+    val charactersInfo: List<CharacterDTO>
 )

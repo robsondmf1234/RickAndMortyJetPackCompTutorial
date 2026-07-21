@@ -1,7 +1,6 @@
 package com.example.rickandmortyjetpackcompose.domain.repository
 
 import com.example.rickandmortyjetpackcompose.data.remote.RootDTO
-import com.example.rickandmortyjetpackcompose.domain.model.Character
 import retrofit2.Response
 
 /**
