@@ -3,7 +3,7 @@ package com.example.rickandmortyjetpackcompose.domain.model
 /**
  * Modelo de domínio que contém informações de paginação da API.
  */
-data class InfoDTO(
+data class Info(
     val count: Int,
     val pages: Int,
     val next: String?,

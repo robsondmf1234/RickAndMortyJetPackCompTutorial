@@ -1,9 +1,9 @@
-package com.example.rickandmortyjetpackcompose.domain.model
+package com.example.rickandmortyjetpackcompose.data.model
 
 /**
  * Modelo de domínio que representa a origem de um personagem.
  */
-data class Origin(
+data class OriginDTO(
     val name: String,
     val url: String
 )

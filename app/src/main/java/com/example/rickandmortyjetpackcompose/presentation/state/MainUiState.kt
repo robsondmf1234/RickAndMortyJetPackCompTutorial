@@ -1,6 +1,6 @@
 package com.example.rickandmortyjetpackcompose.presentation.state
 
-import com.example.rickandmortyjetpackcompose.domain.model.CharacterDTO
+import com.example.rickandmortyjetpackcompose.data.model.CharacterDTO
 
 /**
  * Representa os diferentes estados da Interface do Usuário (UI) na tela principal.

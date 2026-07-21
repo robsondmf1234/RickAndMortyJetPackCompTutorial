@@ -1,7 +1,7 @@
 package com.example.rickandmortyjetpackcompose.data.remote
 
-import com.example.rickandmortyjetpackcompose.domain.model.CharacterDTO
-import com.example.rickandmortyjetpackcompose.domain.model.InfoDTO
+import com.example.rickandmortyjetpackcompose.data.model.CharacterDTO
+import com.example.rickandmortyjetpackcompose.data.model.InfoDTO
 import com.google.gson.annotations.SerializedName
 
 /**

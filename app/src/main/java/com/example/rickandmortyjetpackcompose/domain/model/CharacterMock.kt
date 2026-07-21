@@ -1,5 +1,9 @@
 package com.example.rickandmortyjetpackcompose.domain.model
 
+import com.example.rickandmortyjetpackcompose.data.model.CharacterDTO
+import com.example.rickandmortyjetpackcompose.data.model.LocationDTO
+import com.example.rickandmortyjetpackcompose.data.model.OriginDTO
+
 /**
  * Objeto utilitário contendo dados de exemplo (mocks) para a classe Character.
  * Útil para Previews de Compose e Testes Unitários.
@@ -16,11 +20,11 @@ object CharacterMock {
         species = "Human",
         type = "",
         gender = "Male",
-        origin = Origin(
+        originDTO = OriginDTO(
             name = "Earth (C-137)",
             url = "https://rickandmortyapi.com/api/location/1"
         ),
-        location = Location(
+        locationDTO = LocationDTO(
             name = "Citadel of Ricks",
             url = "https://rickandmortyapi.com/api/location/3"
         ),
@@ -45,8 +49,8 @@ object CharacterMock {
             species = "Human",
             type = "",
             gender = "Male",
-            origin = Origin(name = "unknown", url = ""),
-            location = Location(
+            originDTO = OriginDTO(name = "unknown", url = ""),
+            locationDTO = LocationDTO(
                 name = "Citadel of Ricks",
                 url = "https://rickandmortyapi.com/api/location/3"
             ),
@@ -62,11 +66,11 @@ object CharacterMock {
             species = "Human",
             type = "",
             gender = "Female",
-            origin = Origin(
+            originDTO = OriginDTO(
                 name = "Earth (Replacement Dimension)",
                 url = "https://rickandmortyapi.com/api/location/20"
             ),
-            location = Location(
+            locationDTO = LocationDTO(
                 name = "Earth (Replacement Dimension)",
                 url = "https://rickandmortyapi.com/api/location/20"
             ),

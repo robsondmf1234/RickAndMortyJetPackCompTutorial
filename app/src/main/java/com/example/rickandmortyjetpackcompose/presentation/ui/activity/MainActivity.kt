@@ -33,7 +33,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
-import com.example.rickandmortyjetpackcompose.domain.model.CharacterDTO
+import com.example.rickandmortyjetpackcompose.data.model.CharacterDTO
 import com.example.rickandmortyjetpackcompose.domain.model.CharacterMock
 import com.example.rickandmortyjetpackcompose.presentation.state.MainUiState
 import com.example.rickandmortyjetpackcompose.presentation.ui.theme.RickAndMortyJetPackComposeTheme
